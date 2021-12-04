@@ -19,13 +19,22 @@
                     {% endfor %}
                 </ul>
             </li>
-            <li class="nav-item"><a class="nav-link text-light text-uppercase fw-bold px-3" href="">Contacts</a>
-            </li>
+            <li class="nav-item"><a class="nav-link text-light text-uppercase fw-bold px-3" href="">Contacts</a></li>
             <li class="nav-item"><a class="nav-link text-light text-uppercase fw-bold px-3" href="">About</a></li>
+            {% if item_count > 0 %}
+            <li class="nav-item">
+                <a class="nav-link text-light text-uppercase fw-bold px-3" href="{% url 'cart_detail' %}">
+                    <i class="material-icons cart-icon">
+                        add_shopping_cart
+                    </i>
+                    ({{ item_count }})
+                </a>
+            </li>
+            {% endif %}
         </ul>
 
 
-        <form class="d-flex pe-3">
+        <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
